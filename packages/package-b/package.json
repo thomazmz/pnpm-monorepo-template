@@ -1,0 +1,17 @@
+{
+  "name": "@monorepo/package-b",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./lib/* && tsc --project build.json",
+    "test": "jest --passWithNoTests --config ./jest.json"
+  },
+  "keywords": [],
+  "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}
