@@ -5,8 +5,9 @@
   "types": "lib/index.d.ts",
   "type": "module",
   "scripts": {
+    "test": "jest --passWithNoTests --config ./jest.json",
     "build": "rimraf ./lib/* && tsc --project build.json",
-    "test": "jest --passWithNoTests --config ./jest.json"
+    "build:watch": "tsc --project build.json --watch"
   },
   "keywords": [],
   "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",

@@ -1,7 +1,9 @@
 import { SomeObject } from '@monorepo/package-b'
 
-function call() {
+function call(someObject: SomeObject) {
   console.log('logged from package a')
 }
 
-call()
+call({
+  something: 'something'
+})

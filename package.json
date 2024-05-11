@@ -1,7 +1,10 @@
 {
   "name": "@monorepo/root",
   "version": "1.0.0",
-  "keywords": [],
+  "keywords": [
+    "pnpm",
+    "monorepo"
+  ],
   "author": "",
   "license": "ISC",
   "engines": {
@@ -10,7 +13,9 @@
   },
   "scripts": {
     "build": "pnpm --recursive run build",
-    "test": "pnpm --recursive run test",
+    "build:watch": "pnpm run build && pnpm --parallel run build:watch",
+    
+    "version": "pnpm --recursive run version",
     "publish": "pnpm --recursive run publish"
   },
   "devDependencies": {

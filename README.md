@@ -8,7 +8,7 @@ This repository comprises a slim monorepo template based on the following tools:
 - [PNPM Workspaces](https://pnpm.io/workspaces#workspace-protocol-workspace)
 - [Changeset CLI](https://www.npmjs.com/package/@changesets/cli)
 
-## Using This Template
+### Using This Template
 
 This is a summary of how to use this template. You should refer to the documentations linked above to get more detailed information on each tool used bu this template.
 
@@ -31,11 +31,11 @@ As a starting point, this monorepo places packages under the `./packages` folder
 
 Some of your monorepo packages might be dependent to each other. To install monorepo packages as dependencies of other monorepo packages you should run the following command: 
 
-`pnpm --filter @monorepo/your-package install  <your-dependency>`
+`pnpm --filter @monorepo/your-package install <your-dependency>`
 
 For example: Looking into our example packages, we have `@monorepo/package-b` and `@monorepo/package-a`. To install the first as a dependency on the second, we should run the following:
 
-`pnpm --filter @monorepo/package-a install  @monorepo-package-b`.
+`pnpm --filter @monorepo/package-a install @monorepo-package-b`.
 
 The `--filter` option can also be used to install registry packages/libraries into a specific project of the monorepo. The following example installs the express only on `package-a`.
 
@@ -47,7 +47,52 @@ To install packages at the monorepo's root we need to pass the `--workspace` opt
 
 ### Using TypeScript Across the Monorepo
 
-When you open this project, your IDE might look for the `tsconfig.json` file in the project's root to resolve TypeScript's IntelliSense. If you look into the root `tsconfig.json`, though, you might realize that its values are not suitable for individual packages to run their builds. 
+When you open this project, your IDE might look for the `tsconfig.json` file in the project's root to resolve TypeScript's IntelliSense. This is beneficial because many times the TypeScript compiler configuration desired for development may differ from the one used for final build. Having a centralized `tsconfig.json` file is also important to establish an standardized and opinionated vision on how TypeScript should be used across the monorepo without forcing packages to strictly adhere to them.
 
-To accomplish individual builds, packages should have their own `tsconfig.json` file. Check the config files on the example packages of this repository to understand what are the minimum definitions you should place under your config files. It is recommended that all the nested config files extend the root `tsconfig.json` definition, this helps keep standardized compiler options across the whole monorepo.
+If you look into the root `tsconfig.json`, you might realize that its values are not suitable for individual packages to run their production builds. For example: the root configuration file includes test files into the compilation bundle, which is very useful for development but not desired for a final build. It is highly desirable that each package extend the root configuration file and override whatever configuration option to what may better suit the needs of the package in question.
 
+> Some text editors behave differently in regards tsconfig resolution. This monorepo account for Visual Studio Code, which currently does not support having multiple tsconfig.json files on the same project. You might be able to remove the root tsconfig file directly if you are aiming text editors that support multiple tsconfig.json resolution, such as Web Storm.
+ 
+### Lock File
+
+Pnpm workspaces keep a single lock file named `pnpm-lock.yaml` on  the workspace root. The command `pnpm install` can potentially resolve merge conflicts on the workspace lock file.  
+
+### Monorepo Commands
+
+Monorepo commands are performed recursively when called from the monorepo root, triggering all homonymous scripts found under the monorepo package.json file. Packages with missing scripts will be ignored. The following is the semantics we rely on to make sure commands are consistent across different packages.
+
+#### `pnpm run lint`
+This script triggers each package  `lint` command  so that it fixes possible linting problems. 
+
+#### `pnpm run lint:check`
+This script triggers the package `lint:check` command so that it checks for possible linting problems.
+
+#### `pnpm run build` 
+This script is expected to trigger package build for local usage. This means packages can make use of specific compilers that better suite development needs, such as SWC and Sucrase. After a build is concluded, a `dist` folder should be found at the package root directory. 
+
+#### `pnpm run build:watch`
+This script is expected to extend the behavior of `build:local`, but executing hot reload when package are identified under the subject package.
+
+#### `pnpm run start`
+This script is expected to be used during development for building and starting up packages. When this script is triggered, packages that export resources should expose their latest build artifacts under the root `dist` folder.
+
+#### `pnpm run start:watch`
+This script is expected to extend the behavior of `start:local`, but executing hot reload when changes are identified under the subject package.
+
+#### `pnpm run test`
+This script will trigger the unit test pipeline of each project. Tests triggered by this command should not rely on external resources such as API calls or remote database connections. They are also expected to run in parallel whenever possible so that tests are executed faster. 
+
+#### `pnpm run test:watch`
+This script is expected to extend the behavior of `test`, but executing hot reload when changes are identified under the subject package.
+
+### Naming Production Specific Scripts
+
+As production scripts are usually executed by automated pipelines, reserving the shorter script identifiers to development actions improve development experience a bit. That is why we standardize `build` and `start` for development specific commands. It is also understood that some packages might use the same command for production and development, in this case differentiation would not even be necessary, saving developers cognitive load. When differentiation is necessary, it is suggested that production commands under packages may be suffixed by the term `:production`.
+
+### Version Management
+
+This template uses the Changeset CLI to manage versions independently. There are a tree step process to generate versions: 
+
+1. Run `pnpm changeset`. This will create a new changeset under the `.changeset` directory;
+2. Run `pnpm install`. This will generate a new `pnpm-lock.json` file;
+3. Run `pnpm version`. This will bump all the versions in accordance to the included changesets. 
