@@ -18,7 +18,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUncheckedIndexedAccess": true,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
