@@ -1,0 +1,22 @@
+{
+  "name": "@monorepo/library",
+  "private": "true",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest --config ./jest.json",
+    "test:watch": "jest --config ./jest.json --watchAll",
+    "build": "tsc --project build.json",
+    "build:watch": "tsc --project build.json --watch",
+    "start": "pnpm run build",
+    "start:watch": "pnpm run build:watch"
+  },
+  "keywords": [],
+  "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}
