@@ -1,0 +1,15 @@
+import express from 'express'
+
+import { concatName }  from '@monorepo/library'
+
+const app = express()
+
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send(`Hello ${concatName('thomaz', 'zandonotto')}!`)
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
