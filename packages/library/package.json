@@ -9,9 +9,7 @@
     "test": "jest --config ./jest.json",
     "test:watch": "jest --config ./jest.json --watchAll",
     "build": "tsc --project build.json",
-    "build:watch": "tsc --project build.json --watch",
-    "start": "pnpm run build",
-    "start:watch": "pnpm run build:watch"
+    "build:watch": "tsc --project build.json --watch"
   },
   "keywords": [],
   "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",

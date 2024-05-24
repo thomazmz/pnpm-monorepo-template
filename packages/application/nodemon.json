@@ -1,8 +1,5 @@
 {
-  "watch": [ "src", "node_modules/@monorepo" ],
-  "ignoreRoot": [
-    "**/node_modules/!(@monorepo)/**"
-  ],
+  "watch": [ "src" ],
   "ext": "ts",
   "execMap": {
     "ts": "ts-node --project build.json"
