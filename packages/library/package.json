@@ -12,9 +12,8 @@
     "build:watch": "tsc --watch"
   },
   "keywords": [],
-  "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",
-  "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "@monorepo/ts-config": "workspace:^",
     "typescript": "^5.4.5"
   }
 }
