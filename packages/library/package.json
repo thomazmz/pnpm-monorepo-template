@@ -24,7 +24,7 @@
     "build:watch": "tsc --watch"
   },
   "devDependencies": {
-    "@monorepo/ts-config": "workspace:^",
+    "@monorepo/tsconfig": "workspace:^",
     "typescript": "^5.4.5"
   }
 }

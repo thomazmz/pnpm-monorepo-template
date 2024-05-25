@@ -1,5 +1,5 @@
 {
-  "extends": "@monorepo/ts-config",
+  "extends": "@monorepo/tsconfig",
   "include": ["./src/**/*.ts"],  
   "exclude": ["**/node_modules"],
   "compilerOptions": {
