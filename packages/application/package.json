@@ -1,10 +1,21 @@
 {
   "name": "@monorepo/application",
+  "license": "ISC",
   "private": "true",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "commonjs",
+  "keywords": [
+    "monorepo",
+    "express",
+    "package"
+  ],
+  "author": {
+    "name": "Thomaz Zandonotto",
+    "email": "thomaz.zandonotto@gmail.com",
+    "url": "https://github.com/thomazmz"
+  },
   "scripts": {
     "start": "ts-node ./src/application.ts",
     "start:ci": "node dist/application.js",
@@ -15,9 +26,6 @@
     "test": "jest --config ./jest.json",
     "test:watch": "jest --config ./jest.json --watchAll"
   },
-  "keywords": [],
-  "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",
-  "license": "ISC",
   "dependencies": {
     "@monorepo/library": "workspace:^",
     "express": "^4.19.2"

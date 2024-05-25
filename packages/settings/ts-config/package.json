@@ -1,14 +1,18 @@
 {
   "name": "@monorepo/ts-config",
+  "license": "ISC",
+  "private": "true",
   "version": "1.0.0",
-  "main": "index.js",
   "files": ["tsconfig.json"],
+  "keywords": [
+    "monorepo",
+    "typescript",
+    "config",
+    "tsc"
+  ],
   "author": {
     "name": "Thomaz Zandonotto",
     "email": "thomaz.zandonotto@gmail.com",
     "url": "https://github.com/thomazmz"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

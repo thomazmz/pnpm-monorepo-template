@@ -1,12 +1,18 @@
 {
   "name": "@monorepo/root",
   "version": "1.0.0",
+  "license": "ISC",
   "keywords": [
     "pnpm",
-    "monorepo"
+    "monorepo",
+    "typescript",
+    "javascript"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Thomaz Zandonotto",
+    "email": "thomaz.zandonotto@gmail.com",
+    "url": "https://github.com/thomazmz"
+  },
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
