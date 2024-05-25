@@ -8,8 +8,8 @@
   "scripts": {
     "test": "jest --config ./jest.json",
     "test:watch": "jest --config ./jest.json --watchAll",
-    "build": "tsc --project build.json",
-    "build:watch": "tsc --project build.json --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
   },
   "keywords": [],
   "author": "Thomaz Zandonotto <thomaz.zandonotto@gmail.com>",

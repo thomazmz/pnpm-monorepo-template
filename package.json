@@ -12,8 +12,12 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "build": "pnpm --recursive run build",
-    "build:watch": "pnpm run build && pnpm --parallel run build:watch",
+    "build": "pnpm --recursive --if-present run build",
+    "build:watch": "pnpm run build && pnpm --parallel --if-present run build:watch",
+    "test": "pnpm --recursive --if-present run test",
+    "test:watch": "pnpm --parallel run test:watch",
+    "start": "pnpm --parallel --if-present run start",
+    "start:watch": "pnpm --parallel --if-present run start:watch",
     
     "version": "pnpm --recursive run version",
     "publish": "pnpm --recursive run publish"

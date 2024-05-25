@@ -9,9 +9,9 @@
     "start": "ts-node ./src/application.ts",
     "start:ci": "node dist/application.js",
     "start:watch": "nodemon ./src/application.ts",
-    "build": "tsc --project build.json",
-    "build:ci": "rimraf ./dist/* && tsc --project build.json",
-    "build:watch": "tsc --project build.json --watch",
+    "build": "tsc",
+    "build:ci": "rimraf ./dist/* && tsc",
+    "build:watch": "tsc --watch",
     "test": "jest --config ./jest.json",
     "test:watch": "jest --config ./jest.json --watchAll"
   },
