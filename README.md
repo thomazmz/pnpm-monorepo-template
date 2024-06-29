@@ -23,27 +23,23 @@ This is a summary of how to use this template. You should refer to the documenta
 6. Remember to add your new packages to the `tsconfig.json` `compilerOptions.path` array 
 6. Wipe out the preexisting example directories inside the `packages` folder so that they don't clutter your project
 
-### Using Different Folders to Hold Monorepo Packages
+### Monorepo Package Location
 
-As a starting point, this monorepo places packages under the `./packages` folder. You can place your packages under a different folder or even under multiple folders, as long as they are not outside your project's directory. To do that, go to your `pnpm-lock.yaml` file and change the globs under the  `packages` array.
+As a starting point, this monorepo places packages under the `./packages` folder. You can place your packages under a different folder or even under multiple folders, as long as they are not outside your project's directory. To do that, go to your `pnpm-lock.yaml` file and change the globs under the `packages` array.
 
-### Installing Dependencies 
+### Adding Dependencies 
 
-Some of your monorepo packages might be dependent to each other. To install monorepo packages as dependencies of other monorepo packages you should run the following command: 
+Some of your monorepo packages might be dependent to each other. To add monorepo packages as dependencies of other monorepo packages you should run the following command: 
 
-`pnpm --filter @monorepo/your-package install <your-dependency>`
+`pnpm add @monorepo/library --workspace --filter @monorepo/application`
 
-For example: Looking into our example packages, we have `@monorepo/package-b` and `@monorepo/package-a`. To install the first as a dependency on the second, we should run the following:
+The `--filter` option can also be used to add registry packages/libraries into a specific project of the monorepo. The following example adds the express only on `application`.
 
-`pnpm --filter @monorepo/package-a install @monorepo-package-b`.
+`pnpm add express --filter @monorepo/application `
 
-The `--filter` option can also be used to install registry packages/libraries into a specific project of the monorepo. The following example installs the express only on `package-a`.
+Adding packages at the monorepo's root level is fairly simple. Type the following from the monorepo root folder:
 
-`pnpm --filter @monorepo/package-a install express`
-
-To install packages at the monorepo's root we need to pass the `--workspace` option as part of the command. The following command installs TypeScrips on the monorepo's root:
-
-`pnpm --workspace install express`
+`pnpm add typescript`
 
 ### Using TypeScript Across the Monorepo
 
