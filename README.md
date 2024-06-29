@@ -1,7 +1,7 @@
 
 # Lerna Monorepo Template
 
-This repository comprises a slim monorepo template based on the following tools:
+This project is an example of how to manage multiple JavaScript packages within a single repository while maintaining their independence and enabling a productive development workflows. This is build using the tools listed bellow. Customization is suggested so that this template fits your needs better. Refer to their official documentation to get to know the details on how each tool work.
 
 - [Node](https://nodejs.org/en)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -10,7 +10,9 @@ This repository comprises a slim monorepo template based on the following tools:
 
 ### Using This Template
 
-This is a summary of how to use this template. You should refer to the documentations linked above to get more detailed information on each tool used bu this template.
+The conceptual goal of it is to allow software to be composed of multiple independent pieces of code (packages) that interact through clear boundaries, avoiding unnecessary coupling. This can be achieved by having different packages divided in different repositories; in many circumstances, however, managing code bases that should work coherently together while they are scattered around different repos can get very time consuming and error prone.
+
+By NPM's definition, a packages is "a file or directory that is described by a package.json file". This ample definition imply that packages can be designed to fit different circumstances and needs, either as libraries or applications. This setup supports making changes and publishing multiple projects simultaneously. It allow packages to be either private or public. By using PNPM, we are granted many benefits in terms of workspace management, but not only that: PNPM is also faster and more storage efficient than tools such as NPM and Yarn.
 
 ### Getting Started
 
