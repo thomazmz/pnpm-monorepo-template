@@ -18,10 +18,8 @@
   },
   "scripts": {
     "start": "ts-node ./src/application.ts",
-    "start:ci": "node dist/application.js",
     "start:watch": "nodemon ./src/start.ts",
     "build": "tsc",
-    "build:ci": "rimraf ./dist/* && tsc",
     "build:watch": "tsc --watch",
     "test": "jest --config ./jest.json",
     "test:watch": "jest --config ./jest.json --watchAll"
