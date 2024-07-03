@@ -18,6 +18,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       - name: Run Tests
-        run: pnpm run tests
+        run: pnpm run test
       - name: Run Builds
         run: pnpm run build
