@@ -1,5 +1,5 @@
 
-# Lerna Monorepo Template
+# PNPM Monorepo Template
 
 This project is an example of how to manage multiple JavaScript packages within a single repository while maintaining their independence and enabling a productive development workflows. This is build using the tools listed bellow. Customization is suggested so that this template fits your needs better. Refer to their official documentation to get to know the details on how each tool work.
 
