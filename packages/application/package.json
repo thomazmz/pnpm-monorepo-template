@@ -22,7 +22,7 @@
     "check": "tsc --noEmit",
     "test": "jest --config ./jest.json",
     "build": "rimraf dist && tsc -p ./build.json",
-    "start": "node dist/start.js",
+    "start": "node dist/app.js",
     "dev": "nodemon"
   },
   "dependencies": {
