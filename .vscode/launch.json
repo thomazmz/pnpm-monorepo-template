@@ -1,0 +1,73 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "debug test file",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}/..",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "test",
+        "--runInBand",
+        "${file}"
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
+    },
+    {
+      "name": "debug test case",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}/..",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "test",
+        "--runInBand",
+        "---testNamePattern=${selectedText}",
+        "${file}",
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
+    },
+    {
+      "name": "watch test file",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}/..",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "test",
+        "--watch",
+        "--runInBand",
+        "${file}"
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
+    },
+    {
+      "name": "watch test case",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}/..",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "test",
+        "--watch",
+        "--runInBand",
+        "---testNamePattern=${selectedText}",
+        "${file}",
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
+    },
+  ]
+}
