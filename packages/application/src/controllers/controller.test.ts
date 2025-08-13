@@ -4,6 +4,6 @@ describe('controller', () => {
   it('should pass', () => {
     const controller = new Controller()
     expect(controller.name).toBe('controller')
-    expect(controller.service.name).toBe('service')
+    expect(controller.service.name).toBe('SERVICE')
   })
 })
