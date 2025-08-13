@@ -1,11 +1,25 @@
 {
   "moduleFileExtensions": [ "ts", "js" ],
   "maxWorkers": 1,
-  "rootDir": "src",
-  "testRegex": "test.ts$",
+  "rootDir": "./src",
+  "testMatch": ["**/*.test.ts"],
   "testEnvironment": "node",
-  "passWithNoTests": true,
   "transform": {
     "^.+\\.ts$": "ts-jest"
-  }
+  },
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "./tsconfig.json"
+    }
+  },
+  "coverageReporters": ["text", "lcov"],
+  "coverageDirectory": "<rootDir>/../coverage",
+  "moduleNameMapper": {
+    "^@monorepo/library$": "<rootDir>/lib.ts",
+    "^@monorepo/library/utilities$": "<rootDir>/utilities/index.ts"
+  },
+  "collectCoverageFrom": [
+    "**/*.ts",
+    "!**/index.ts"
+  ]
 }

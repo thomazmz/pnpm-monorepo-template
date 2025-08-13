@@ -1,13 +1,17 @@
 {
-  "extends": "@monorepo/tsconfig",
-  "include": ["./src/**/*.ts"],  
-  "exclude": ["**/node_modules"],
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
-    "target": "ES6",
-    "baseUrl": "./src",
-    "outDir": "./dist",
+    "target": "ES2022",
     "module": "commonjs",
     "moduleResolution": "node",
+    "outDir": "dist",
+    "baseUrl": "src",
+    "declaration": true,
+    "declarationMap": true,
     "types": ["node", "jest"],
+    "paths": {
+      "@monorepo/application/services": ["services/index.ts"],
+      "@monorepo/application/controllers": ["controllers/index.ts"]
+    }
   }
 }

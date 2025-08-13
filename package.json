@@ -18,6 +18,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
+    "prepare": "husky",
     "build": "pnpm --recursive --if-present run build",
     "build:watch": "pnpm run build && pnpm --parallel --if-present run build:watch",
     "test": "pnpm --recursive --if-present run test",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "changeset": "^0.2.6"
+    "changeset": "^0.2.6",
+    "husky": "^9.0.0"
   }
 }
